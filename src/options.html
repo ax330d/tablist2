@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html color-mode="light" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Tablist Options -- Chrome Extension" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TabList Options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/options.css" />
+  <script type="module" src="js/optionsPage.ts"></script>
+</head>
+
+<body class="background">
+  <main id="main-content" class="glow-div">
+    <h1>TabList Options</h1>
+    <include src="src/html/options-forms.html"></include>
+  </main>
+
+  <footer id="footer">
+    <a tabindex="0" id="footer-help">Help</a>&nbsp;&nbsp;
+    <a tabindex="0" id="footer-about">About</a>&nbsp;&nbsp;
+    <span id="footer-version"></span>
+  </footer>
+
+  <!-- Hidden content -->
+  <include src="src/html/options-help.html"></include>
+  <include src="src/html/about.html"></include>
+
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+</body>
+
+</html>

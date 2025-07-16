@@ -1,0 +1,6 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+archive/
+dist/
+dist_dev/
+node_modules/
+.parcel-cache/

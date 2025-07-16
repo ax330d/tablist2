@@ -1,0 +1,25 @@
+{
+  "name": "tablist2",
+  "version": "2.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel watch src/newtab.html src/options.html --dist-dir dist_dev && cp src/manifest.json dist_dev/manifest.json",
+    "build": "parcel build --no-content-hash --no-source-maps --no-scope-hoist src/newtab.html src/options.html  --dist-dir dist && cp src/manifest.json dist/manifest.json && mkdir -p dist/assets/icons/ && cp src/assets/icons/* dist/assets/icons/",
+    "knip": "knip"
+  },
+  "keywords": ["extension", "tabs", "management", "groups"],
+  "author": "Arthur Gerkis",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chrome": "^0.0.306",
+    "@types/node": "^22.13.14",
+    "knip": "^5.46.2",
+    "parcel": "^2.13.3",
+    "parcel-plugin-static-files-copy": "^1.2.4",
+    "posthtml": "^0.16.6",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-include": "^2.0.1",
+    "typescript": "^5.8.2"
+  }
+}

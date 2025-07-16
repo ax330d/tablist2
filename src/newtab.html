@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html color-mode="light" ui-style="square" ui-view="normal" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Tablist -- Chrome Extension" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TabList</title>
+  <script src="js/theme-preload.ts"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/newtab.css" />
+  <script type="module" src="js/newTabPage.ts"></script>
+</head>
+
+<body class="preload background">
+  <main id="main-content">
+    <header id="header">
+      <h1 tabindex="0" id="headerText">TabList</h1>
+    </header>
+
+    <div class="mode-container">
+      <div class="mode-items">
+        <label for="dark_mode" class="mode-item" title="Dark theme">
+          <input tabindex="0" aria-label="Switch to dark mode" type="radio" id="dark_mode" name="theme_switch"
+            value="dark_mode" />
+          <span class="material-symbols-rounded">dark_mode</span>
+        </label>
+        <label for="light_mode" class="mode-item" title="Light theme">
+          <input tabindex="0" aria-label="Switch to light mode" type="radio" id="light_mode" name="theme_switch"
+            value="light_mode" />
+          <span class="material-symbols-rounded">light_mode</span>
+        </label>
+        <label for="follow_os" class="mode-item" title="Device theme">
+          <input tabindex="0" aria-label="Uses system settings" type="radio" id="follow_os" name="theme_switch"
+            value="follow_os" />
+          <span class="material-symbols-rounded">computer</span>
+        </label>
+      </div>
+    </div>
+    <div id="tabs-container" class="glow-div main-container" role="list"></div>
+
+    <div class="page-scroll">
+      <div class="page-scroll-dir" tabindex="0" id="page-scroll-up">
+        <span title="Scroll up" class="material-symbols-rounded">north</span>
+      </div>
+      <div class="page-scroll-dir" tabindex="0" id="go-to-recent">
+        <span title="Go to recent tab" class="material-symbols-rounded">tab_recent</span>
+      </div>
+      <div class="page-scroll-dir" tabindex="0" id="page-scroll-down">
+        <span title="Scroll down" class="material-symbols-rounded">south</span>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <a tabindex="0" id="footer-help">Help</a>&nbsp;&nbsp;
+      <a tabindex="0" id="footer-options">Options</a>&nbsp;&nbsp;
+      <a tabindex="0" id="footer-a11y">Shortcuts</a>&nbsp;&nbsp;
+      <a tabindex="0" id="footer-about">About</a>&nbsp;&nbsp;
+      <a tabindex="0" id="footer-check">Check</a>
+      <span id="footer-version"></span>
+    </footer>
+
+    <!-- Hidden content -->
+    <include src="src/html/newtab-help.html"></include>
+    <include src="src/html/about.html"></include>
+    <include src="src/html/newtab-a11y.html"></include>
+
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <include src="src/html/newtab-template.html"></include>
+</body>
+
+</html>

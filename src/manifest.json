@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "TabList",
+    "version": "2.0",
+    "description": "This extension will list all opened tabs in new tab. Useful if you have opened hundreds of tabs.",
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "icons": {
+        "128": "assets/icons/favicon_128.png",
+        "16": "assets/icons/favicon_16.png",
+        "48": "assets/icons/favicon_48.png"
+    },
+    "options_page": "options.html",
+    "permissions": [
+        "tabs",
+        "tabGroups",
+        "storage",
+        "favicon"
+    ],
+    "incognito": "split",
+    "web_accessible_resources": [
+        {
+          "resources": ["_favicon/*"],
+          "matches": ["<all_urls>"]
+        }
+    ]
+}

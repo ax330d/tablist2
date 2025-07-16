@@ -1,0 +1,48 @@
+<template hidden id="tpl-action-dialog">
+    <dialog id="action-dialog">
+  <form method="dialog">
+    <p>Please choose action:</p>
+    <menu>
+      <button value="create">Create Group</button><br/>
+      <button value="move">Move to Existing Group</button><br/>
+      <button class="cancel" value="cancel">Cancel</button>
+    </menu>
+  </form>
+</dialog>
+</template>
+
+<template hidden id="tpl-name-create-dialog">
+    <dialog id="name-create-dialog">    
+        <form method="dialog">
+        <p>Please enter group name:</p>
+        <p>
+            <input placeholder="Group name" type="text" id="group-name-input" required />
+        </p>
+        <menu>
+            <button value="confirm">OK</button>
+            <button class="cancel" value="cancel" formnovalidate>Cancel</button>
+        </menu>
+        </form>
+    </dialog>
+</template>
+
+<template hidden id="tpl-name-move-dialog">
+    <dialog id="name-move-dialog">    
+        <form method="dialog">
+            <p>Select a group to move tabs to:</p>
+            <div class="radio-group"></div>
+            <menu>
+              <button value="confirm">OK</button>
+              <button class="cancel" value="cancel" formnovalidate>Cancel</button>
+            </menu>
+          </form>
+    </dialog>
+</template>
+
+<template hidden id="tpl-item-move-dialog">
+    <input tabindex="0" type="radio" name="group-name" id="" value=""/>
+    <label for="" class="group-option">
+        <span></span>
+    </label>
+    <br/>
+</template>

@@ -4,3 +4,4 @@ dist/
 dist_dev/
 node_modules/
 .parcel-cache/
+coverage/

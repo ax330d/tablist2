@@ -1,5 +1,3 @@
-// options.ts
-
 import { normalizeHexRGB } from './lib/utils';
 import { Options, SelectedStyle, ThemeSwitch, DEFAULT_OPTIONS, RESTRICTED_KEYS } from './lib/constants';
 import { showPopup } from './lib/popup';

@@ -9,7 +9,7 @@
   },
   "keywords": ["extension", "tabs", "management", "groups"],
   "author": "Arthur Gerkis",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "description": "",
   "devDependencies": {
     "@types/chrome": "^0.0.306",

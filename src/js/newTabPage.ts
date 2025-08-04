@@ -1,4 +1,3 @@
-// newTabPage.ts
 import { TabManager } from './lib/TabManager';
 import { GroupManager } from './lib/GroupManager';
 import { DragDropManager } from './lib/DragDropManager';

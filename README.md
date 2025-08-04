@@ -88,15 +88,13 @@ Built with comprehensive keyboard support and screen reader compatibility. Every
 
 **TabList doesn't appear when opening a new tab**
 - Make sure the extension is enabled in Chrome's extension settings
-- Try restarting your browser after installation
-
-**Tabs not updating in real-time**
-- Refresh the TabList page to sync with current browser state
-- Check that the extension has proper permissions
+- Make sure there are no conflicting extensions
 
 **Keyboard shortcuts not working**
 - Make sure TabList is focused (click anywhere on the page first)
 - Some shortcuts require specific focus states - see the Shortcuts guide
+
+In any other cases please report the issue.
 
 ## 📞 Support & Feedback
 
@@ -108,7 +106,11 @@ Having issues or suggestions? We'd love to hear from you!
 
 ## 📄 License
 
-TabList is released under the ISC License.
+TabList is released under the GNU General Public License v3.0 or later (GPL-3.0-or-later).
+
+This means you are free to use, modify, and distribute this software, but any derivative works must also be released under the same license. This ensures that improvements to TabList remain open source and benefit the entire community.
+
+See the [LICENSE](LICENSE) file for the complete license text.
 
 ---
 

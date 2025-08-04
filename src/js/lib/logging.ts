@@ -1,4 +1,4 @@
-export const DEBUG = true;
+export const DEBUG = false;
 
 /** Logs an error to the console with a consistent prefix. */
 export const logError = (type: string, message: string, error?: unknown): void => {

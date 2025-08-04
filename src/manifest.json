@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "TabList",
-    "version": "2.0",
-    "description": "This extension will list all opened tabs in new tab. Useful if you have opened hundreds of tabs.",
+    "version": "2.0.0",
+    "description": "Replaces new tab page with a list of all open tabs and groups. Useful for managing many tabs.",
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },

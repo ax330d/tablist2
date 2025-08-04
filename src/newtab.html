@@ -18,30 +18,30 @@
 </head>
 
 <body class="preload background">
+  <div class="mode-container">
+    <div class="mode-items">
+      <label for="dark_mode" class="mode-item" title="Dark theme">
+        <input tabindex="0" aria-label="Switch to dark mode" type="radio" id="dark_mode" name="theme_switch"
+          value="dark_mode" />
+        <span class="material-symbols-rounded">dark_mode</span>
+      </label>
+      <label for="light_mode" class="mode-item" title="Light theme">
+        <input tabindex="0" aria-label="Switch to light mode" type="radio" id="light_mode" name="theme_switch"
+          value="light_mode" />
+        <span class="material-symbols-rounded">light_mode</span>
+      </label>
+      <label for="follow_os" class="mode-item" title="Device theme">
+        <input tabindex="0" aria-label="Uses system settings" type="radio" id="follow_os" name="theme_switch"
+          value="follow_os" />
+        <span class="material-symbols-rounded">computer</span>
+      </label>
+    </div>
+  </div>
   <main id="main-content">
     <header id="header">
-      <h1 tabindex="0" id="headerText">TabList</h1>
+      <h1 tabindex="0" class="main-header" id="headerText">TabList</h1>
     </header>
 
-    <div class="mode-container">
-      <div class="mode-items">
-        <label for="dark_mode" class="mode-item" title="Dark theme">
-          <input tabindex="0" aria-label="Switch to dark mode" type="radio" id="dark_mode" name="theme_switch"
-            value="dark_mode" />
-          <span class="material-symbols-rounded">dark_mode</span>
-        </label>
-        <label for="light_mode" class="mode-item" title="Light theme">
-          <input tabindex="0" aria-label="Switch to light mode" type="radio" id="light_mode" name="theme_switch"
-            value="light_mode" />
-          <span class="material-symbols-rounded">light_mode</span>
-        </label>
-        <label for="follow_os" class="mode-item" title="Device theme">
-          <input tabindex="0" aria-label="Uses system settings" type="radio" id="follow_os" name="theme_switch"
-            value="follow_os" />
-          <span class="material-symbols-rounded">computer</span>
-        </label>
-      </div>
-    </div>
     <div id="tabs-container" class="glow-div main-container" role="list"></div>
 
     <div class="page-scroll">

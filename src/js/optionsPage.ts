@@ -197,6 +197,11 @@ class OptionsManager {
     } else {
       this.enableLightTheme(opts);
     }
+
+    document.querySelectorAll('.mode-item').forEach(label => label.classList.remove('selected'));
+    const label = document.querySelector(`label[for="${this.options.theme_switch}"]`) as HTMLElement | null;
+    if (label) label.classList.add('selected');
+    document.body.classList.remove('preload');
   }
 
   private async initialize(): Promise<void> {
@@ -210,15 +215,47 @@ class OptionsManager {
 
     // Initialize UI
     this.setupUI();
+    this.initializeToggleButton();
     this.checkUserTheme(this.options);
 
     // Listen for storage changes
     chrome.storage.onChanged.addListener((changes, areaName) => {
       if (areaName === 'sync' && changes['theme_switch']) {
         this.options.theme_switch = changes['theme_switch'].newValue;
+        this.checkStyles();
         this.checkUserTheme(this.options);
       }
     });
+  }
+
+  public checkStyles(): void {
+    const root = document.documentElement;
+    root.style.setProperty('--dynamic-font-size-title', `${this.options.title_font_size.toFixed(2)}rem`);
+    root.style.setProperty('--dynamic-font-size-info',  `${this.options.info_font_size.toFixed(2)}rem`);
+
+    switch (this.options.theme_switch) {
+      case 'follow_os':
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? this.enableDarkTheme(this.options)
+          : this.enableLightTheme(this.options);
+        break;
+      case 'dark_mode':
+        this.enableDarkTheme(this.options);
+        break;
+      default:
+        this.enableLightTheme(this.options);
+    }
+
+    const style = this.options.selected_style;
+    if (style === 'square_style' || style === 'round_style') {
+      root.setAttribute('ui-style', style);
+    } else {
+      logError(E_TYPE, `No such style: ${style}!`);
+    }
+
+    this.options.compact_view
+      ? root.setAttribute('ui-view', 'compact')
+      : root.removeAttribute('ui-view');
   }
 
   private setupUI(): void {
@@ -253,6 +290,17 @@ class OptionsManager {
         showPopup(popup, btn);
       });
     });
+  }
+
+  public initializeToggleButton(): void {
+    document.querySelectorAll<HTMLInputElement>('input[name="theme_switch"]')
+      .forEach(radio => radio.addEventListener('change', () => {
+        if (!radio.checked) return;
+        // the onChanged handler will pick this up and re-apply styles/UI
+        chrome.storage.sync.set({ theme_switch: radio.value });
+        //this.localChange = true;
+        localStorage.setItem('theme_switch', radio.value);
+      }));
   }
 
   private setupColorPickers (opts: Options) {

@@ -9,24 +9,18 @@
   --dynamic-font-size-title: 1.2rem;
   --dynamic-font-size-info: 1.0rem;
   --bg-gradient-deg: 45deg;
-  --theme-menu-width: 44px;
   --border-radius: 7px;
   --data-container-border-radius: 5px;
+  --shadow-color: rgb(0 0 0 / 20%);
 
   --inputs-border-radius: 5px;
-  --focus-color: #ee1fbe;
+  --focus-color: #ee1fbea5;
   --max-width: 1024px;
   --min-width: 600px;
   /* --focus-color: rgb(208, 76, 188); */
 
-  --spacing-sm: 5px;
-  --spacing-md: 10px;
-  --spacing-lg: 15px;
-  --spacing-xl: 20px;
-  --spacing-xxl: 30px;
 
   --text-color: #222;
-  --mode-item-color: rgba(0, 0, 0, 0.6);
   --bg-color: #9c9c9c;
   --data-container-bg-color: rgb(255 255 255 / 0.9);
   --modal-bg: rgb(0 0 0 / 50%);
@@ -42,12 +36,7 @@
   --key-name-bg-color: rgba(0, 0, 0, 0.1);
 }
 
-:root[ui-view="compact"] {
-  --spacing-md: 5px;
-  --spacing-lg: 10px;
-  --spacing-xl: 15px;
-  --spacing-xxl: 20px;
-}
+
 
 :root[ui-style="square_style"] {
   --fh-backgroud: #ccc;
@@ -89,15 +78,18 @@
 } */
 
 *:focus-visible {
-  outline: 2px dashed var(--focus-color);
+  outline: 3px solid var(--focus-color);
   outline-offset: 3px;
+  border-radius: 10px;
   /* outline: none; */
   /* box-shadow: inset 0 0 0.5em 0 var(--focus-color), 0 0 0.5em 0 var(--focus-color) !important; */
 }
 
 .no-select {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;         /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  user-select: none;
+  /* Standard */
 }
 
 body {
@@ -114,7 +106,7 @@ body {
 
 h1 {
   font-weight: 300;
-  margin: 0px;
+  margin: 10px 0;
   font-size: 2.0rem;
 }
 
@@ -126,107 +118,11 @@ li {
   padding: 6px;
 }
 
-.preload {
-  background-color: #222;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.mode-container {
-  color: var(--mode-item-color);
-  cursor: pointer;
-  height: var(--theme-menu-width); /* e.g., 44px */
-  overflow: hidden;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  transition: width 0.5s ease;
-  width: var(--theme-menu-width);
-  /* width: 60px; */
-  height: 60px;
-}
-
-.mode-container input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.mode-items {
-  display: inline-flex;
-  padding: 4px;
-}
-
-.mode-item {
-  opacity: 0;
-}
-
-.mode-item {
-  background-color: rgb(255 255 255 / 20%);
-  height: 20px;
-  width: 20px;
-  padding: var(--spacing-md);
-  border-radius: 10px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease, opacity 0.5s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* margin: 4px; */
-}
-
-.mode-item:hover {
-  background-color: rgb(255 255 255 / 30%);
-}
-
-input:focus-visible+.material-symbols-rounded {
-  outline: 2px dashed var(--focus-color);
-  outline-offset: 3px;
-}
-
-.mode-container:hover,
-.mode-container:focus-within {
-  width: 140px;
-  height: 60px;
-}
-
-.mode-container:hover .mode-items .mode-item,
-.mode-container:focus-within .mode-items .mode-item {
-  position: relative;
-  opacity: 1;
-}
-
-.mode-container:hover .mode-items .mode-item:nth-child(1),
-.mode-container:focus-within .mode-items .mode-item:nth-child(1) {
-  transform: translateX(0);
-}
-
-.mode-container:hover .mode-items .mode-item:nth-child(2),
-.mode-container:focus-within .mode-items .mode-item:nth-child(2) {
-  transform: translateX(4px);
-}
-
-.mode-container:hover .mode-items .mode-item:nth-child(3),
-.mode-container:focus-within .mode-items .mode-item:nth-child(3) {
-  transform: translateX(8px);
-}
-
-.mode-item.selected {
-  opacity: 1;
-  transform: translateX(0);
-  position: absolute;
-  left: 0;
-  z-index: 10;
-}
-
-
 #main-content {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
+  /* Full viewport height */
   overflow-y: auto;
 }
 
@@ -242,7 +138,8 @@ input:focus-visible+.material-symbols-rounded {
 }
 
 #header {
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
+  /* Prevent shrinking */
   background: var(--footer-bg);
   color: rgb(255 255 255 / 40%);
   font-size: 1.8rem;
@@ -255,6 +152,10 @@ input:focus-visible+.material-symbols-rounded {
   text-align: center;
   width: 55%;
   /* height: 36px; */
+
+  .main-header {
+    margin: 0px;
+  }
 
   .text {
     display: block;
@@ -286,7 +187,8 @@ input:focus-visible+.material-symbols-rounded {
 }
 
 #footer {
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
+  /* Prevent shrinking */
   background: var(--footer-bg);
   padding: var(--spacing-xxl) var(--spacing-sm);
   text-align: center;
@@ -298,6 +200,7 @@ input:focus-visible+.material-symbols-rounded {
   height: 20px;
   font-size: 0.9rem;
   z-index: 999;
+
   a {
     color: rgb(255 255 255 / 40%);
   }
@@ -346,7 +249,7 @@ input:focus-visible+.material-symbols-rounded {
   padding: 8px 12px;
   font-weight: 500;
   display: block;
-  backdrop-filter: invert(0.5);
+  /* backdrop-filter: invert(.7); */
   /*box-shadow: 0 0px 4px #0000001a;*/
 }
 
@@ -357,7 +260,7 @@ input:focus-visible+.material-symbols-rounded {
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   border-radius: var(--border-radius);
   transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  backdrop-filter: invert(0.5);
+  /* backdrop-filter: invert(.7); */
 
   &:hover {
     box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
@@ -367,10 +270,12 @@ input:focus-visible+.material-symbols-rounded {
 
 .tab-group-container.collapsed {
   border-radius: 0px;
+
   .tab-group-header {
     border-radius: var(--border-radius);
     backdrop-filter: invert(0.5);
   }
+
   .tab-group-content {
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
     max-height: 0px !important;
@@ -386,15 +291,15 @@ input:focus-visible+.material-symbols-rounded {
   border-bottom: 2px dashed #000;
 }
 
-.tab-group-content > .drop-placeholder:first-child {
+.tab-group-content>.drop-placeholder:first-child {
   margin-top: var(--spacing-lg) !important;
 }
 
-.tab-group-content > .drop-placeholder:last-child {
+.tab-group-content>.drop-placeholder:last-child {
   margin-bottom: var(--spacing-lg) !important;
 }
 
-.tab-group-content > .drop-placeholder {
+.tab-group-content>.drop-placeholder {
   margin-right: 4px !important;
   margin-left: 4px !important;
 }
@@ -487,9 +392,10 @@ dialog:modal {
   border: 0;
   box-shadow: 0 2px 20px 1px rgb(0 0 0 / 30%);
   text-align: center;
-  background-color: rgb(255 255 255 / 20%);
-  backdrop-filter: blur(15px);
+  background-color: rgb(255 255 255 / 50%);
+  backdrop-filter: blur(10px);
   color: rgb(0 0 0 / 80%);
+  max-width: 600px;
 }
 
 dialog::backdrop {
@@ -536,9 +442,53 @@ dialog button {
   }
 }
 
+dialog button.option,
+dialog button.confirm {
+  background: linear-gradient(45deg, #3a67b1, #3d629b);
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+
+  &:hover {
+    background: linear-gradient(45deg, #446fb6, #3d629b);
+    /*transform: translateY(-2px);*/
+    box-shadow: 0 4px 8px rgb(0 0 0 / 30%);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
+}
+
+dialog button.confirm {}
+
 dialog button.cancel {
-  background-color: #ea5e2f;
-  margin-top: 20px;
+  background: linear-gradient(45deg, #bb5151, #b84423);
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+
+  &:hover {
+    background: linear-gradient(45deg, #b53232, #b84423);
+    /*transform: translateY(-2px);*/
+    box-shadow: 0 4px 8px rgb(0 0 0 / 30%);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
 }
 
 dialog button.cancel:hover {
@@ -546,8 +496,12 @@ dialog button.cancel:hover {
 }
 
 
+p.dialog-title {
+  margin-bottom: var(--spacing-lg);
+}
+
 .radio-group {
-  margin-top: 15px;
+  display: ruby;
 
   input[type="radio"] {
     position: absolute;
@@ -563,24 +517,38 @@ dialog button.cancel:hover {
 
   span {
     padding: 4px;
-    min-width: 80px;
+    min-width: 60px;
     display: inline-block;
     margin: var(--spacing-sm);
   }
 }
 
 .group-option {
-  border: 1px solid rgb(255 255 255 / 20%);
-  padding: var(--spacing-sm);
   border-radius: var(--inputs-border-radius);
+  border: 2px solid rgb(255 255 255 / 20%);
   cursor: pointer;
-
-  &:hover {
-    transition: background-color 0.3s ease;
-    border: 1px solid rgb(255 255 255 / 40%);
-  }
+  display: grid;
+  margin: var(--spacing-sm);
+  background-color: #ffffff5e;
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
+.radio-group input[type="radio"]:focus-visible + .group-option {
+  outline: 3px solid var(--focus-color);
+  border-radius: 10px;
+  outline-offset: 3px;
+}
+
+.radio-group input[type="radio"]:focus-visible + .window-option {
+  outline: 3px solid var(--focus-color);
+  border-radius: 10px;
+  outline-offset: 3px;
+}
+
+dialog input[type="radio"]:checked+.group-option {
+  opacity: 1;
+  border: 2px solid rgb(255 255 255 / 80%) !important;
+}
 
 .key-name {
   background-color: var(--key-name-bg-color);
@@ -615,7 +583,7 @@ dialog button.cancel:hover {
   }
 }
 
-.tab-group-container .data-container  {
+.tab-group-container .data-container {
   margin: var(--spacing-lg) calc(var(--spacing-md) + 2px);
 }
 
@@ -650,6 +618,7 @@ dialog button.cancel:hover {
     transition: none !important;
     animation: none !important;
   }
+
   .data-container.disintegrate {
     opacity: 0;
     height: 0;
@@ -717,7 +686,7 @@ dialog button.cancel:hover {
 }
 
 /* Ensure focus outline is visible on options */
-.options-container + .material-symbols-rounded:focus-within {
+.options-container+.material-symbols-rounded:focus-within {
   outline: 2px dashed var(--input-element-color);
   outline-offset: 3px;
 }
@@ -740,7 +709,8 @@ dialog button.cancel:hover {
 }
 
 .favicon-container {
-  flex-shrink: 0; /* Don’t shrink */
+  flex-shrink: 0;
+  /* Don’t shrink */
   cursor: pointer;
   padding: var(--spacing-xl);
   margin: auto;
@@ -750,15 +720,19 @@ dialog button.cancel:hover {
   /* line-height: 1.6em; */
   /* width: 100%; */
   padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) 0;
-  flex-grow: 1; /* Takes available space */
+  flex-grow: 1;
+  /* Takes available space */
   display: flex;
-  flex-direction: column; /* Stack title and url vertically */
-  min-width: 0; /* Allows text overflow to work in flex */
+  flex-direction: column;
+  /* Stack title and url vertically */
+  min-width: 0;
+  /* Allows text overflow to work in flex */
 }
 
 .tab-title {
   display: flex;
-  align-items: center; /* Align symbols with title text */
+  align-items: center;
+  /* Align symbols with title text */
   font-size: var(--dynamic-font-size-title);
   /* font-weight: 300; */
   padding: 4px 0;
@@ -800,8 +774,10 @@ dialog button.cancel:hover {
   vertical-align: bottom;
   color: #222;
   margin: 0 2px; */
-  flex-shrink: 0; /* Keep symbols at natural size */
-  margin-right: var(--spacing-sm); /* Space before title text */
+  flex-shrink: 0;
+  /* Keep symbols at natural size */
+  margin-right: var(--spacing-sm);
+  /* Space before title text */
   line-height: 1rem;
   font-size: 1.2rem;
   vertical-align: bottom;
@@ -832,7 +808,8 @@ dialog button.cancel:hover {
 }
 
 .text-container-mute {
-  color: violet;;
+  color: violet;
+  ;
 }
 
 .text-container-pin {
@@ -852,9 +829,12 @@ dialog button.cancel:hover {
 
 /* Add to your existing stylesheet */
 .rolling-border {
-  position: relative; /* Ensure positioning context */
-  border: 3px dashed var(--focus-color); /* Dashed border, using your #ee1fbe */
-  animation: rollBorder 1.5s linear infinite; /* Continuous rolling effect */
+  position: relative;
+  /* Ensure positioning context */
+  border: 3px dashed var(--focus-color);
+  /* Dashed border, using your #ee1fbe */
+  animation: rollBorder 1.5s linear infinite;
+  /* Continuous rolling effect */
 }
 
 /* Animation keyframes */
@@ -863,10 +843,13 @@ dialog button.cancel:hover {
     border-style: dashed;
     border-color: var(--focus-color);
   }
+
   50% {
     border-style: dashed;
-    border-color: transparent; /* Flicker effect to simulate movement */
+    border-color: transparent;
+    /* Flicker effect to simulate movement */
   }
+
   100% {
     border-style: dashed;
     border-color: var(--focus-color);
@@ -875,7 +858,8 @@ dialog button.cancel:hover {
 
 /* Ensure main-container integrates it */
 .main-container.rolling-border {
-  border-radius: var(--tc-rounding); /* Retain your rounding */
+  border-radius: var(--tc-rounding);
+  /* Retain your rounding */
 }
 
 .page-scroll {
@@ -911,11 +895,108 @@ dialog button.cancel:hover {
 
 /* Keyframes for the flash effect */
 @keyframes flash {
-  0% {
-  }
+  0% {}
+
   50% {
     background-color: rgba(255, 153, 0, 0.5);
   }
-  100% {
+
+  100% {}
+}
+
+/* Window selection dialog styles */
+.window-option {
+  background-color: #ffffff5e;
+  padding: var(--spacing-md);
+  border-radius: var(--inputs-border-radius);
+  cursor: pointer;
+  display: block;
+  border: 2px solid rgb(255 255 255 / 20%);
+  margin: var(--spacing-sm);
+  box-shadow: 0 2px 10px var(--shadow-color);
+
+  &:hover {
+    transition: background-color 0.3s ease;
+    border: 2px solid rgb(255 255 255 / 40%);
   }
+
+  &:active {
+    border: 2px solid rgb(255 255 255 / 80%);
+    color: #fff;
+  }
+}
+
+.window-option-new {
+  background-color: #ffffff5e;
+  padding: var(--spacing-md);
+  border-radius: var(--inputs-border-radius);
+  cursor: pointer;
+
+  border: 2px solid rgb(255 255 255 / 20%);
+
+  &:hover {
+    transition: background-color 0.3s ease;
+    border: 2px solid rgb(255 255 255 / 40%);
+  }
+
+  &:active {
+    border: 2px solid rgb(255 255 255 / 80%);
+    color: #fff;
+  }
+}
+
+.main-dialog-option {
+  min-width: 230px;
+}
+
+.window-option>span {
+  margin: 0px;
+}
+
+.tab-count-badge, .group-count-badge {
+  color: #888;
+  padding: 6px 8px;
+}
+
+.tab-count-badge {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.dialog-group-name {
+  color: #444;
+  font-weight: 500;
+  grid-area: 1 / 2 / 2 / 3;
+  padding: 6px 8px;
+}
+
+.dialog-window-name {
+  color: #444;
+  font-weight: 500;
+  padding: 6px 8px;
+}
+
+dialog input[type="radio"]:checked+.window-option,
+dialog input[type="radio"]:checked+.window-option-new {
+  opacity: 1;
+  border: 2px solid rgb(255 255 255 / 80%);
+}
+
+/* Group header selected state */
+.tab-group-header.selected {
+  border: 4px solid rgb(255 158 63 / 70%) !important;
+  box-shadow: 0 0 10px rgb(255 158 63 / 50%);
+}
+
+.inline-symbol {
+  font-size: 1.4rem;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.dialog-tab-icon {
+  font-size: 3.0rem;
+  grid-area: 1 / 1 / 3 / 2;
+  border-right: 2px solid rgb(255 255 255 / 20%);
+  padding: 0px !important;
+  margin: 0px !important;
 }

@@ -2,6 +2,7 @@ import { hexToRGBA, updateDomIndices } from './utils';
 import { Options } from './constants';
 import { DEBUG, logInfo } from './logging';
 import { COLOR_MAP } from './colors';
+import { DialogManager } from './DialogManager';
 
 const E_TYPE = 'GroupManager';
 
@@ -26,6 +27,7 @@ export class GroupManager {
   public userInitiatedFold: boolean;
   private tabContainer: HTMLElement;
   private options: Options;
+  private dialogManager: DialogManager | null = null;
 
   /**
    * Creates a new GroupManager instance.
@@ -37,6 +39,13 @@ export class GroupManager {
     this.options = options;
     this.groupStates = groupStates || {};
     this.userInitiatedFold = false;
+  }
+  /**
+   * Sets the DialogManager reference to check selection state.
+   * @param dialogManager - The DialogManager instance.
+   */
+  public setDialogManager(dialogManager: any): void {
+    this.dialogManager = dialogManager;
   }
 
   /**
@@ -167,10 +176,13 @@ export class GroupManager {
 
     this.groupContainers[groupId] = { container: groupContainer, header: groupHeader, content: groupContent };
 
-    groupHeader.addEventListener('click', () => {
+    groupHeader.addEventListener('click', (e: MouseEvent) => {
+      if (e.shiftKey || (this.dialogManager && this.dialogManager.isSelecting())) {
+        // Don't toggle collapse during selection mode
+        return;
+      }
       this.toggleGroupCollapse(groupContainer, tabGroupId);
-    });
-    groupHeader.addEventListener('keydown', (e: KeyboardEvent) => {
+    });    groupHeader.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'Enter') groupHeader.click();
     });
 
@@ -196,8 +208,11 @@ export class GroupManager {
       return;
     }
     if (group.title) groupHeader.textContent = group.title || `Group ${group.id}`;
-    groupHeader.style.backgroundColor = hexToRGBA(baseColor, 0.4);
-    groupContent.style.backgroundColor = hexToRGBA(baseColor, 0.4);
+    const initColor = hexToRGBA(baseColor, 0.4);
+    groupHeader.style.backgroundColor = initColor;
+    //groupContent.style.backgroundColor = hexToRGBA(baseColor, 0.4);
+    const secondColor = hexToRGBA(baseColor, 0.7);
+    groupContent.style.background = `linear-gradient(${initColor}, ${secondColor})`;
     // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     //const lr = hexToRGBA(baseColor, 0.3);
     //const rl = hexToRGBA(baseColor, 0.5);

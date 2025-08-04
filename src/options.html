@@ -6,6 +6,7 @@
   <meta name="description" content="Tablist Options -- Chrome Extension" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TabList Options</title>
+  <script src="js/theme-preload.ts"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,6 +18,26 @@
 </head>
 
 <body class="background">
+    <div class="mode-container">
+      <div class="mode-items">
+        <label for="dark_mode" class="mode-item" title="Dark theme">
+          <input tabindex="0" aria-label="Switch to dark mode" type="radio" id="dark_mode" name="theme_switch"
+            value="dark_mode" />
+          <span class="material-symbols-rounded">dark_mode</span>
+        </label>
+        <label for="light_mode" class="mode-item" title="Light theme">
+          <input tabindex="0" aria-label="Switch to light mode" type="radio" id="light_mode" name="theme_switch"
+            value="light_mode" />
+          <span class="material-symbols-rounded">light_mode</span>
+        </label>
+        <label for="follow_os" class="mode-item" title="Device theme">
+          <input tabindex="0" aria-label="Uses system settings" type="radio" id="follow_os" name="theme_switch"
+            value="follow_os" />
+          <span class="material-symbols-rounded">computer</span>
+        </label>
+      </div>
+    </div>
+
   <main id="main-content" class="glow-div">
     <h1>TabList Options</h1>
     <include src="src/html/options-forms.html"></include>

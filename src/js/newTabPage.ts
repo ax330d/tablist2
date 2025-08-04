@@ -79,6 +79,10 @@ export class NewTabPage {
     this.uiManager.setupUI(this.container, this.tabManager);
     this.uiManager.initializeToggleButton();
     this.dialogManager.setupTabSelection();
+
+    // Connect DialogManager and GroupManager for selection state checking
+    this.groupManager.setDialogManager(this.dialogManager);
+
     await this.renderTabs();
   }
 }

@@ -1,9 +1,8 @@
 (async function () {
   try {
-    const data = await chrome.storage.sync.get('theme_switch');
-    const theme = data['theme_switch'] || 'follow_os';
+    const theme = localStorage.getItem('theme_switch');
     let mode = 'light';
-    
+
     if (
       theme === 'dark_mode' ||
       (theme === 'follow_os' &&
@@ -11,7 +10,7 @@
     ) {
       mode = 'dark';
     }
-    
+
     document.documentElement.setAttribute('color-mode', mode);
   } catch (error) {
     console.error('Error setting preload theme:', error);

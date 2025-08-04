@@ -12,7 +12,7 @@ TabList is available on the Chrome Web Store.
 
 1. **Install the extension** - Once installed, TabList automatically replaces your new tab page
 2. **Open a new tab** - You'll see all your open tabs organized in a clean list
-3. **Navigate with ease** - Click any tab to switch to it, or use keyboard shortcuts for faster navigation
+3. **Navigate with ease** - Click any tab to switch to it, or use keyboard shortcuts
 4. **Organize with groups** - Create and manage tab groups directly from the interface
 5. **Customize your experience** - Access Options to personalize themes and behavior
 
@@ -33,9 +33,6 @@ See all your open tabs in one place, no matter how many you have. Each tab shows
 - **Reload tabs** that need refreshing
 - **Multi-select** tabs for batch operations (move to groups, other windows)
 
-### **Keyboard Navigation**
-Navigate entirely with your keyboard for maximum efficiency. Perfect for power users who prefer not to reach for the mouse.
-
 ### **Customization**
 - **Themes**: Light, dark, or follow your system preference
 - **Interface styles**: Choose between round or square design
@@ -43,10 +40,11 @@ Navigate entirely with your keyboard for maximum efficiency. Perfect for power u
 - **Font sizes**: Adjust title and info text to your preference
 - **Display options**: Show full URLs, full titles, and more
 
-### **Accessibility First**
-Built with comprehensive keyboard support and screen reader compatibility. Every feature is accessible to all users.
+### **Keyboard Navigation**
 
-## ⌨️ Keyboard Shortcuts
+Navigate entirely with your keyboard for maximum efficiency.
+
+#### ⌨️ Keyboard Shortcuts
 
 | Action | Shortcut |
 |--------|----------|

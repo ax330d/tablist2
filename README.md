@@ -6,7 +6,7 @@ TabList replaces your new tab page with a clean, organized overview of all your 
 
 ## 🚀 Installation
 
-TabList is available on the Chrome Web Store.
+TabList is available on the Chrome Web Store: https://chromewebstore.google.com/detail/tablist/jpamgbdghndlbbplmbjfdaaippkjadkj
 
 ## ✨ Quick Start
 
